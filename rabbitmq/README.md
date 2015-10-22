@@ -6,7 +6,7 @@ This role installs and configures [RabbitMQ](https://www.rabbitmq.com/).
 Role Variables
 --------------
 
-None
+* **rabbitmq_plugins**: A comma-separated list of plugins to install
 
 Example Playbook
 ----------------

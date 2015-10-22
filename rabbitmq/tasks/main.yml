@@ -30,6 +30,14 @@
   notify: Restart rabbitmq
   tags: [rabbitmq]
 
+- name: Install plugins
+  rabbitmq_plugin:
+    names: '{{ rabbitmq_plugins }}'
+    state: 'enabled'
+  when: rabbitmq_plugins != false
+  notify: Restart rabbitmq
+  tags: [rabbitmq,rabbitmq-plugins]
+
 - name: Ensure rabbitmq is started and enabled on boot
   service:
     name: 'rabbitmq-server'
