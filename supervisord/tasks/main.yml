@@ -1,0 +1,24 @@
+---
+# tasks file for supervisord
+
+- name: Install required packages
+  apt:
+    name: 'supervisor'
+    state: 'installed'
+  tags: [supervisord,packages]
+
+- name: Ensure log path exists
+  file:
+    state: 'directory'
+    path: '{{ supervisord_log_path }}'
+  tags: [supervisord,supervisord-config]
+
+- name: Create config entries
+  template:
+    src: 'conf.d-entry.j2'
+    dest: '/etc/supervisor/conf.d/{{ item.name }}.conf'
+    owner: 'root'
+    group: 'root'
+  with_items: supervisord_programs
+  notify: Reload supervisord config
+  tags: [supervisord,supervisord-config]

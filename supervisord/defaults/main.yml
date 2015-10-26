@@ -1,0 +1,8 @@
+---
+# defaults file for supervisord
+
+supervisord_log_path: '/var/log/supervisor'
+supervisord_program_defaults:
+  numprocs: 1
+  autostart: true
+  autorestart: true

@@ -1,0 +1,10 @@
+---
+# handlers file for supervisord
+
+- name: Restart supervisord
+  service:
+    name: 'supervisor'
+    state: 'restarted'
+
+- name: Reload supervisord config
+  shell: 'supervisorctl reread; supervisorctl update'
