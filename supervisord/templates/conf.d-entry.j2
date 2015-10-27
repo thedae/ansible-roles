@@ -1,4 +1,5 @@
 [program:{{ item.name }}]
+process_name=%(program_name)s_%(process_num)02d
 command={{ item.command }}
 user={{ item.user }}
 directory={{ item.directory }}
