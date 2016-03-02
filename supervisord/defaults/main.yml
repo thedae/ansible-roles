@@ -6,3 +6,4 @@ supervisord_program_defaults:
   numprocs: 1
   autostart: true
   autorestart: true
+  environment: ''

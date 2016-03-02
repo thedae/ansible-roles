@@ -6,5 +6,6 @@ directory={{ item.directory }}
 numprocs={{ item.numprocs|default(supervisord_program_defaults.numprocs) }}
 autostart={{ item.autostart|default(supervisord_program_defaults.autostart)|lower }}
 autorestart={{ item.autorestart|default(supervisord_program_defaults.autorestart)|lower }}
+environment={{ item.environment|default(supervisord_program_defaults.environment) }}
 stderr_logfile={{ supervisord_log_path }}/{{ item.stderr_logfile|default('supervisor-' ~ item.name ~ '.err.log') }}
 stdout_logfile={{ supervisord_log_path }}/{{ item.stdout_logfile|default('supervisor-' ~ item.name ~ '.out.log') }}
